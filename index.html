@@ -1,0 +1,1629 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Anniversary ❤️</title>
+
+<style>
+/* ==========================================
+   CHANGE FONTS AND COLORS HERE
+========================================== */
+:root {
+  --red: #d9003f;
+  --dark-red: #98002e;
+  --cream: #fff7e9;
+  --pink: #ffb8cc;
+
+  --body-font: Arial, sans-serif;
+  --heading-font: Georgia, serif;
+  --letter-font: Georgia, serif;
+  --reasons-font: Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  background: var(--red);
+  color: white;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.page {
+  min-height: 100svh;
+  padding: 35px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+h1, h2 {
+  font-family: var(--heading-font);
+}
+
+button:focus-visible {
+  outline: 3px solid #ffcf44;
+  outline-offset: 4px;
+}
+
+.primary-btn {
+  border: none;
+  border-radius: 30px;
+  padding: 13px 32px;
+  background: white;
+  color: var(--dark-red);
+  font-weight: bold;
+  transition: transform .2s;
+}
+
+.primary-btn:hover {
+  transform: scale(1.07);
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+/* ==========================================
+   FLOATING HEARTS
+========================================== */
+
+.floating-hearts {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-hearts span {
+  position: absolute;
+  bottom: -50px;
+  animation: floatHeart 9s linear infinite;
+  opacity: .5;
+  color: #ffb8cc;
+}
+
+@keyframes floatHeart {
+  from {
+    transform: translateY(0) rotate(0);
+  }
+  to {
+    transform: translateY(-115vh) rotate(35deg);
+  }
+}
+
+/* ==========================================
+   PHOTO FRAMES
+   CHANGE PHOTO SHAPES HERE
+========================================== */
+
+.photo-frame {
+  background: white;
+  padding: 12px;
+  box-shadow: 0 14px 35px #65002066;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* Password: Polaroid rectangle */
+.password-frame {
+  width: min(330px, 85vw);
+  height: 390px;
+  padding-bottom: 40px;
+  transform: rotate(-7deg);
+  border-radius: 5px;
+}
+
+.password-frame img {
+  object-fit: cover;
+}
+
+/* YES/NO: arch-shaped frame */
+.surprise-frame {
+  width: min(320px, 85vw);
+  height: 380px;
+  border-radius: 48% 48% 12px 12px;
+  transform: rotate(4deg);
+}
+
+.surprise-frame img {
+  border-radius: 46% 46% 8px 8px;
+  object-fit: cover;
+}
+
+/* Gift images: rectangles */
+.gift-frame {
+  width: 190px;
+  height: 180px;
+  border-radius: 10px;
+}
+
+.gift-frame img {
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+/* ==========================================
+   PASSWORD PAGE
+========================================== */
+
+#passwordPage {
+  background: linear-gradient(120deg, #fff8ec 40%, #df003e 40%);
+}
+
+.password-layout {
+  display: flex;
+  width: min(1050px, 100%);
+  align-items: center;
+  justify-content: space-around;
+  gap: 35px;
+  z-index: 1;
+}
+
+.password-panel {
+  text-align: center;
+}
+
+.password-panel h1 {
+  font-style: italic;
+  font-size: 38px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin: 24px 0;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ff91af;
+}
+
+.dot.active {
+  background: white;
+  transform: scale(1.15);
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 58px);
+  gap: 13px;
+  justify-content: center;
+}
+
+.keypad button {
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  background: #fa87a6;
+  color: white;
+  font-size: 21px;
+}
+
+.keypad button:hover {
+  background: white;
+  color: var(--red);
+}
+
+.shake {
+  animation: shake .4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-13px); }
+  40% { transform: translateX(13px); }
+  60% { transform: translateX(-10px); }
+  80% { transform: translateX(10px); }
+}
+
+.error-message {
+  min-height: 24px;
+  margin-top: 15px;
+}
+
+/* ==========================================
+   YES / NO PAGE
+========================================== */
+
+#surprisePage {
+  background: linear-gradient(135deg, #ff205c, #b00038);
+}
+
+.surprise-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 55px;
+  width: min(1050px, 100%);
+  z-index: 1;
+}
+
+.surprise-content {
+  text-align: center;
+}
+
+.surprise-content h1 {
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.4;
+}
+
+.choice-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.choice-buttons button {
+  width: 100px;
+  height: 85px;
+  border: 2px solid white;
+  border-radius: 45% 45% 50% 50%;
+  font-size: 23px;
+  font-weight: bold;
+  color: white;
+}
+
+.yes-btn { background: #07834f; }
+.no-btn { background: #e72b65; }
+
+/* ==========================================
+   NO PAGE
+========================================== */
+
+#noPage {
+  background: #c9003b;
+  flex-direction: column;
+  text-align: center;
+}
+
+#noPage h1 {
+  font-size: clamp(35px, 7vw, 75px);
+  max-width: 850px;
+}
+
+#noPage .primary-btn {
+  margin-top: 20px;
+}
+
+/* ==========================================
+   GIFTS PAGE
+========================================== */
+
+#giftPage {
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(#ed9db2 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  color: var(--dark-red);
+  flex-direction: column;
+}
+
+#giftPage h1 {
+  font-size: clamp(32px, 5vw, 50px);
+  font-style: italic;
+  text-align: center;
+}
+
+.gift-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 45px;
+  margin-top: 30px;
+}
+
+.gift-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transition: transform .25s;
+}
+
+.gift-card:hover {
+  transform: translateY(-10px);
+}
+
+.gift-card button {
+  background: var(--red);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+}
+
+/* ==========================================
+   GIFT 1: TYPING AND THREE PHOTOS
+========================================== */
+
+#giftOnePage {
+  background: linear-gradient(120deg, #ffcfda, #e90049);
+  color: #921137;
+}
+
+.gift-one-layout {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 35px;
+  width: min(1050px, 100%);
+  align-items: center;
+}
+
+.message-paper {
+  background: #fff9f0;
+  padding: 35px;
+  min-height: 340px;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px #80002d33;
+}
+
+.message-paper h2 {
+  font-style: italic;
+}
+
+#typingMessage {
+  font-family: var(--letter-font);
+  font-size: 19px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.photo-stack {
+  position: relative;
+  height: 420px;
+}
+
+.stack-photo {
+  position: absolute;
+  width: 210px;
+  height: 230px;
+  padding: 9px 9px 28px;
+  background: white;
+  box-shadow: 0 8px 18px #0004;
+  opacity: 0;
+  transform: translateY(30px) rotate(-5deg);
+  transition: opacity .35s, transform .35s;
+}
+
+.stack-photo.visible {
+  opacity: 1;
+  transform: translateY(0) rotate(-5deg);
+}
+
+.stack-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.stack-photo:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.stack-photo:nth-child(2) {
+  top: 95px;
+  right: 0;
+}
+
+.stack-photo:nth-child(3) {
+  top: 195px;
+  left: 10px;
+}
+
+.letter-icon {
+  font-size: 55px;
+  display: block;
+  margin: 15px auto;
+  background: none;
+  border: none;
+}
+
+/* ==========================================
+   LETTER PAGE
+========================================== */
+
+#letterPage {
+  background: #e50042;
+}
+
+.letter-layout {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  width: min(1050px, 100%);
+}
+
+.letter-paper {
+  background: var(--cream);
+  color: #8c173b;
+  border-radius: 8px;
+  padding: 35px;
+  width: 60%;
+  min-height: 460px;
+  box-shadow: 0 10px 30px #50001b66;
+}
+
+#letterText {
+  font-family: var(--letter-font);
+  line-height: 1.8;
+  font-size: 19px;
+  white-space: pre-line;
+}
+
+.letter-photo {
+  width: 35%;
+  aspect-ratio: 4/5;
+  border-radius: 15px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .5s, transform .5s;
+}
+
+.letter-photo.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.letter-photo img {
+  object-fit: contain;
+}
+
+/* ==========================================
+   GIFT 2: THREE MEETINGS
+========================================== */
+
+#giftTwoPage {
+  background: #e40042;
+}
+
+.memory-book {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(950px, 100%);
+  min-height: 490px;
+  background: #fff6e9;
+  color: #981d43;
+  box-shadow: 0 15px 35px #60002077;
+  border: 9px solid #f8e6ce;
+  position: relative;
+}
+
+.memory-book::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 5px;
+  background: #c5b7a1;
+}
+
+.memory-left,
+.memory-right {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.memory-photo {
+  width: min(320px, 100%);
+  aspect-ratio: 4/5;
+  border-radius: 8px;
+  transform: rotate(-3deg);
+}
+
+.memory-photo img {
+  object-fit: contain;
+}
+
+.memory-right {
+  text-align: center;
+}
+
+.memory-right h2 {
+  font-style: italic;
+  font-size: 32px;
+}
+
+.memory-right p {
+  line-height: 1.8;
+  font-size: 19px;
+}
+
+.book-controls {
+  display: flex;
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.book-controls button {
+  border: none;
+  background: #bb174b;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 24px;
+}
+
+.book-controls button:disabled {
+  opacity: .3;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   GIFT 3: INTRO
+========================================== */
+
+#reasonsIntroPage {
+  background:
+    radial-gradient(circle at 20% 25%, #ff7791, transparent 30%),
+    linear-gradient(135deg, #ed0043, #a60032);
+  flex-direction: column;
+  text-align: center;
+}
+
+#reasonsIntroPage h1 {
+  font-size: clamp(35px, 6vw, 70px);
+  font-style: italic;
+  max-width: 800px;
+}
+
+.yellow-stars {
+  color: #ffd43b;
+  font-size: 40px;
+  letter-spacing: 20px;
+}
+
+.intro-arrow {
+  position: absolute;
+  right: clamp(25px, 9vw, 130px);
+  bottom: 65px;
+  background: none;
+  border: none;
+  color: #ffdd37;
+  font-size: 70px;
+  animation: arrowMove 1.5s infinite;
+}
+
+@keyframes arrowMove {
+  50% { transform: translateX(12px); }
+}
+
+/* ==========================================
+   GIFT 3: 21 REASONS SCRAPBOOK
+========================================== */
+
+#reasonsBookPage {
+  background: #ed003e;
+}
+
+.reasons-book {
+  display: grid;
+  grid-template-columns: 1fr 1.13fr;
+  width: min(1100px, 100%);
+  min-height: 560px;
+  background: #f7f0df;
+  color: #332923;
+  border: 10px solid #f0dfc5;
+  box-shadow: 0 18px 40px #54001e88;
+  position: relative;
+  transform: rotate(-1deg);
+}
+
+.reasons-book::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 46.9%;
+  width: 7px;
+  background: linear-gradient(
+    90deg, #b9a58b, #fff9ef, #a89177
+  );
+}
+
+.reasons-left,
+.reasons-right {
+  padding: 30px;
+  min-width: 0;
+}
+
+.reasons-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reasons-photo {
+  width: min(350px, 100%);
+  aspect-ratio: 4/5;
+  padding: 12px 12px 35px;
+  transform: rotate(5deg);
+  border-radius: 3px;
+}
+
+.reasons-photo img {
+  object-fit: contain;
+}
+
+.reasons-photo-controls {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.reasons-photo-controls button {
+  background: #bd1647;
+  border: none;
+  color: white;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  font-size: 25px;
+}
+
+.reasons-right h2 {
+  text-align: center;
+  font-family: var(--reasons-font);
+  color: #a81743;
+  font-style: italic;
+  font-size: 25px;
+}
+
+#reasonsList {
+  font-family: var(--reasons-font);
+  font-size: clamp(12px, 1.25vw, 16px);
+  line-height: 1.45;
+  padding-left: 25px;
+}
+
+#reasonsList li {
+  margin-bottom: 3px;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 720px) {
+  .page {
+    padding: 75px 15px 35px;
+  }
+
+  .password-layout,
+  .surprise-layout,
+  .letter-layout {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .password-panel h1 {
+    font-size: 27px;
+  }
+
+  .password-frame {
+    width: 175px;
+    height: 205px;
+    padding-bottom: 25px;
+  }
+
+  .surprise-frame {
+    width: 175px;
+    height: 210px;
+  }
+
+  .surprise-content h1 {
+    font-size: 28px;
+  }
+
+  .gift-grid {
+    gap: 25px;
+  }
+
+  .gift-frame {
+    width: 125px;
+    height: 125px;
+  }
+
+  .gift-one-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .message-paper {
+    padding: 25px;
+  }
+
+  .photo-stack {
+    width: 290px;
+    height: 420px;
+    margin: auto;
+  }
+
+  .letter-paper,
+  .letter-photo {
+    width: 100%;
+  }
+
+  .letter-photo {
+    max-width: 270px;
+  }
+
+  .memory-book,
+  .reasons-book {
+    grid-template-columns: 1fr;
+    transform: none;
+  }
+
+  .memory-book::after,
+  .reasons-book::after {
+    display: none;
+  }
+
+  .memory-left,
+  .memory-right,
+  .reasons-left,
+  .reasons-right {
+    padding: 25px;
+  }
+
+  .memory-photo {
+    max-width: 260px;
+  }
+
+  .reasons-photo {
+    max-width: 260px;
+  }
+
+  #reasonsList {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .intro-arrow {
+    right: 25px;
+    bottom: 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-hearts span,
+  .intro-arrow {
+    animation: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ======================================
+     PAGE 1: PASSWORD
+====================================== -->
+
+<section id="passwordPage" class="page">
+  <div class="floating-hearts"></div>
+
+  <div class="password-layout">
+    <div class="photo-frame password-frame">
+      <img  src="images/first login.jpeg" alt="Our photo">
+    </div>
+
+    <div class="password-panel">
+      <h1>Our  5th Anniversary<br>Surprise ❤️</h1>
+      <p>🔒 Enter the password</p>
+
+      <div id="passwordBox">
+        <div id="dots" class="dots"></div>
+
+        <div class="keypad">
+          <button onclick="pressNumber('1')">1</button>
+          <button onclick="pressNumber('2')">2</button>
+          <button onclick="pressNumber('3')">3</button>
+          <button onclick="pressNumber('4')">4</button>
+          <button onclick="pressNumber('5')">5</button>
+          <button onclick="pressNumber('6')">6</button>
+          <button onclick="pressNumber('7')">7</button>
+          <button onclick="pressNumber('8')">8</button>
+          <button onclick="pressNumber('9')">9</button>
+          <button onclick="clearPassword()">⌫</button>
+          <button onclick="pressNumber('0')">0</button>
+          <button onclick="checkPassword()">✓</button>
+        </div>
+      </div>
+
+      <p id="passwordError" class="error-message"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================
+     PAGE 2: YES / NO
+====================================== -->
+
+<section id="surprisePage" class="page hidden">
+  <div class="floating-hearts"></div>
+
+  <div class="surprise-layout">
+    <div class="photo-frame surprise-frame">
+      <img src="images/second.jpeg" alt="Surprise photo">
+    </div>
+
+    <div class="surprise-content">
+      <h1>
+        I have a little<br>
+        surprise for you! ❤️<br>
+        Wanna see it?
+      </h1>
+
+      <div class="choice-buttons">
+        <button class="yes-btn"
+          onclick="showPage('giftPage')">
+          YES
+        </button>
+
+        <button class="no-btn"
+          onclick="showPage('noPage')">
+          NO
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================
+     NO PAGE
+====================================== -->
+
+<section id="noPage" class="page hidden">
+  <h1>HOW DARE YOU! 😤❤️<br>CLICK YES!</h1>
+
+  <button class="primary-btn"
+    onclick="showPage('surprisePage')">
+    Try Again 💕
+  </button>
+</section>
+
+<!-- ======================================
+     GIFT SELECTION
+====================================== -->
+
+<section id="giftPage" class="page hidden">
+  <button class="primary-btn back-btn"
+    onclick="showPage('surprisePage')">
+    ← Back
+  </button>
+
+  <h1>Select Any Gift 🎁</h1>
+
+  <div class="gift-grid">
+    <div class="gift-card">
+      <div class="photo-frame gift-frame">
+        <img src="images/giftcover.png" id="giftOneCover" alt="Gift one">
+      </div>
+
+      <button onclick="openGiftOne()">
+        Gift 1 💌
+      </button>
+    </div>
+
+    <div class="gift-card">
+      <div class="photo-frame gift-frame">
+        <img src="images/giftcover.png" id="giftTwoCover" alt="Gift two">
+      </div>
+
+      <button onclick="openGiftTwo()">
+        Gift 2 📖
+      </button>
+    </div>
+
+    <div class="gift-card">
+      <div class="photo-frame gift-frame">
+        <img  src="images/giftcover.png"id="giftThreeCover" alt="Gift three">
+      </div>
+
+      <button onclick="showPage('reasonsIntroPage')">
+        Gift 3 ❤️
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================
+     GIFT 1
+====================================== -->
+
+<section id="giftOnePage" class="page hidden">
+  <button class="primary-btn back-btn"
+    onclick="showPage('giftPage')">
+    ← Back
+  </button>
+
+  <div class="gift-one-layout">
+    <div class="message-paper">
+      <h2>Just a little message... 💌</h2>
+      <p id="typingMessage"></p>
+
+      <button class="letter-icon"
+        onclick="openLetter()"
+        aria-label="Open love letter">
+        💌
+      </button>
+
+      <p style="text-align:center">
+        Tap to open your letter ❤️
+      </p>
+    </div>
+
+    <div class="photo-stack">
+      <div class="stack-photo">
+        <img src="images/gift 1 1.jpeg" id="stackPhoto1" alt="Memory one">
+      </div>
+
+      <div class="stack-photo">
+        <img src="images/gift  1 2.jpeg" id="stackPhoto2" alt="Memory two">
+      </div>
+
+      <div class="stack-photo">
+        <img  src="images/gift1 3.jpeg"id="stackPhoto3" alt="Memory three">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================
+     LOVE LETTER
+====================================== -->
+
+<section id="letterPage" class="page hidden">
+  <button class="primary-btn back-btn"
+    onclick="showPage('giftOnePage')">
+    ← Back
+  </button>
+
+  <div class="letter-layout">
+    <div class="letter-paper">
+      <h2>To My Favourite Person ❤️</h2>
+      <p id="letterText"></p>
+    </div>
+
+    <div id="letterPhotoBox"
+      class="photo-frame letter-photo">
+      <img  src="images/111.jpeg" alt="Our memory">
+    </div>
+  </div>
+</section>
+
+<!-- ======================================
+     GIFT 2: THREE MEETINGS
+====================================== -->
+
+<section id="giftTwoPage" class="page hidden">
+  <button class="primary-btn back-btn"
+    onclick="showPage('giftPage')">
+    ← Back
+  </button>
+
+  <div class="memory-book">
+    <div class="memory-left">
+      <div class="photo-frame memory-photo">
+        <img  src="images/first meet.jpeg" alt="Our meeting">
+      </div>
+    </div>
+
+    <div class="memory-right">
+      <h2 id="meetingTitle"></h2>
+      <p id="meetingText"></p>
+
+      <div class="book-controls">
+        <button id="meetingPrev"
+          onclick="changeMeeting(-1)">
+          ←
+        </button>
+
+        <span id="meetingCounter"></span>
+
+        <button id="meetingNext"
+          onclick="changeMeeting(1)">
+          →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================
+     GIFT 3: INTRO
+====================================== -->
+
+<section id="reasonsIntroPage" class="page hidden">
+  <button class="primary-btn back-btn"
+    onclick="showPage('giftPage')">
+    ← Back
+  </button>
+
+  <div class="yellow-stars">✦ ★ ✦</div>
+
+  <h1>
+    21 Reasons<br>
+    Why I Love You ❤️
+  </h1>
+
+  <div class="yellow-stars">★ ✦ ★</div>
+
+  <button class="intro-arrow"
+    onclick="openReasonsBook()"
+    aria-label="Open reasons book">
+    ➜
+  </button>
+</section>
+
+<!-- ======================================
+     GIFT 3: SCRAPBOOK
+====================================== -->
+
+<section id="reasonsBookPage" class="page hidden">
+  <button class="primary-btn back-btn"
+    onclick="showPage('reasonsIntroPage')">
+    ← Back
+  </button>
+
+  <div class="reasons-book">
+    <div class="reasons-left">
+      <div class="photo-frame reasons-photo">
+        <img src="images/special.jpeg"reasonPhoto" alt="Our special photo">
+      </div>
+
+      <div class="reasons-photo-controls">
+        <button onclick="changeReasonPhoto(-1)">←</button>
+        <span id="reasonPhotoCounter"></span>
+        <button onclick="changeReasonPhoto(1)">→</button>
+      </div>
+    </div>
+
+    <div class="reasons-right">
+      <h2>21 Reasons Why I Love You ❤️</h2>
+      <ol id="reasonsList"></ol>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ==========================================
+   CHANGE EVERYTHING HERE ❤️
+
+   Replace photo paths, messages and reasons.
+   Keep the quotation marks and commas.
+========================================== */
+
+const CONFIG = {
+
+  // CHANGE PASSWORD HERE
+  password: "10102021",
+
+  // CHANGE SPEED HERE (milliseconds)
+  typingSpeed: 20,
+  photoDelay: 0.5,
+
+  // CHANGE PHOTOS HERE
+  photos: {
+    main: "images/main.jpg",
+    surprise: "images/surprise.jpg",
+
+    giftOneCover: "images/gift1.jpg",
+    giftTwoCover: "images/gift2.jpg",
+    giftThreeCover: "images/gift3.jpg",
+
+    giftOne: [
+      "images/photo1.jpg",
+      "images/photo2.jpg",
+      "images/photo3.jpg"
+    ],
+
+    letter: "images/letter.jpg",
+
+    meetings: [
+      "images/meeting1.jpg",
+      "images/meeting2.jpg",
+      "images/meeting3.jpg"
+    ],
+
+    reasons: [
+      "images/reason1.jpg",
+      "images/reason2.jpg",
+      "images/reason3.jpg"
+    ]
+  },
+
+  // CHANGE GIFT 1 PARAGRAPH HERE
+  giftOneMessage:
+    "From the moment you came into my life, " +
+    "everything started to feel more beautiful. " +
+    "You are not just my partner, but my peace, " +
+    "my happiness, and my greatest blessing. " +
+    "I'm so lucky to have you. ❤️",
+
+  // CHANGE LOVE LETTER HERE
+  letter:
+    "My Love,\n\n" +
+    "Every moment spent with you is a memory " +
+    "that I want to keep forever. " +
+    "You make my ordinary days extraordinary, " +
+    "and your smile makes everything better.\n\n" +
+    "I hope we keep creating beautiful memories " +
+    "together, laughing together, and loving " +
+    "each other more every single day.\n\n" +
+    "congratulation betuu on our 5th anniversary"+
+    "Forever yours ❤️",
+
+  // CHANGE GIFT 2 TEXT AND PHOTOS HERE
+  meetings: [
+    {
+      title: "Our First Meeting 🥰",
+      text:
+        "The day we met was the beginning " +
+        "of something truly special. ❤️"
+    },
+    {
+      title: "Congratulations On Our 5th anniversary",
+      text:
+        "Five beautiful years with you, and my heart still chooses you every single day. Thank you for being my happiness, my comfort, and my favourite person. Here's to all the love, laughter, and beautiful moments still waiting for us. ❤️ " +
+        ""
+    },
+   
+  ],
+
+  // CHANGE YOUR 21 REASONS HERE
+  reasons: [
+    "You make me smile without trying.",
+    "You always check if I'm okay.",
+    "You listen to me.",
+    "You make me laugh.",
+    "You remember the little things.",
+    "You make me feel safe.",
+    "You believe in me.",
+    "You're kind to everyone.",
+    "You accept me as I am.",
+    "You're honest with me.",
+    "You make ordinary days special.",
+    "You never give up on us.",
+    "You understand me without many words.",
+    "You're patient with me.",
+    "You always make time for me.",
+    "You bring me peace.",
+    "You support my dreams.",
+    "You make me feel loved.",
+    "You're my favourite person to talk to.",
+    "Life is simply better with you.",
+    "I love you because you're you."
+  ]
+};
+
+/* ==========================================
+   PAGE NAVIGATION
+========================================== */
+
+const pageIds = [
+  "passwordPage",
+  "surprisePage",
+  "noPage",
+  "giftPage",
+  "giftOnePage",
+  "letterPage",
+  "giftTwoPage",
+  "reasonsIntroPage",
+  "reasonsBookPage"
+];
+
+let currentPage = "passwordPage";
+let typingTimer = null;
+let photoTimers = [];
+
+function showPage(id) {
+  if (!pageIds.includes(id)) return;
+
+  clearInterval(typingTimer);
+  photoTimers.forEach(clearTimeout);
+  photoTimers = [];
+
+  pageIds.forEach(pageId => {
+    document.getElementById(pageId)
+      .classList.toggle("hidden", pageId !== id);
+  });
+
+  currentPage = id;
+  window.scrollTo(0, 0);
+}
+
+/* ==========================================
+   PASSWORD: INSTANT WRONG DIGIT RESET
+========================================== */
+
+let enteredPassword = "";
+let passwordLocked = false;
+
+const dotsBox = document.getElementById("dots");
+const passwordBox = document.getElementById("passwordBox");
+const passwordError = document.getElementById("passwordError");
+
+for (let i = 0; i < CONFIG.password.length; i++) {
+  const dot = document.createElement("span");
+  dot.className = "dot";
+  dotsBox.appendChild(dot);
+}
+
+function updateDots() {
+  [...dotsBox.children].forEach((dot, index) => {
+    dot.classList.toggle(
+      "active",
+      index < enteredPassword.length
+    );
+  });
+}
+
+function pressNumber(number) {
+  if (passwordLocked) return;
+
+  const position = enteredPassword.length;
+
+  if (number !== CONFIG.password[position]) {
+    wrongPassword();
+    return;
+  }
+
+  enteredPassword += number;
+  updateDots();
+
+  if (enteredPassword === CONFIG.password) {
+    passwordLocked = true;
+
+    setTimeout(() => {
+      clearPassword();
+      passwordLocked = false;
+      showPage("surprisePage");
+    }, 350);
+  }
+}
+
+function wrongPassword() {
+  passwordLocked = true;
+  passwordError.textContent = "Wrong password! Try again ❤️";
+
+  passwordBox.classList.remove("shake");
+  void passwordBox.offsetWidth;
+  passwordBox.classList.add("shake");
+
+  if (navigator.vibrate) {
+    navigator.vibrate([100, 50, 100]);
+  }
+
+  setTimeout(() => {
+    clearPassword();
+    passwordLocked = false;
+    passwordBox.classList.remove("shake");
+    passwordError.textContent = "";
+  }, 450);
+}
+
+function clearPassword() {
+  if (passwordLocked && enteredPassword.length === 0) {
+    return;
+  }
+
+  enteredPassword = "";
+  updateDots();
+}
+
+function checkPassword() {
+  if (passwordLocked) return;
+
+  if (enteredPassword === CONFIG.password) {
+    showPage("surprisePage");
+  } else {
+    wrongPassword();
+  }
+}
+
+/* ==========================================
+   TYPEWRITER ANIMATION
+========================================== */
+
+function typeText(element, message, speed, onProgress) {
+  clearInterval(typingTimer);
+
+  element.textContent = "";
+  let index = 0;
+
+  typingTimer = setInterval(() => {
+    if (index >= message.length) {
+      clearInterval(typingTimer);
+      return;
+    }
+
+    element.textContent += message[index];
+    index++;
+
+    if (onProgress) {
+      onProgress(index / message.length);
+    }
+  }, speed);
+}
+
+/* ==========================================
+   GIFT 1
+========================================== */
+
+function openGiftOne() {
+  showPage("giftOnePage");
+
+  const photos = document.querySelectorAll(".stack-photo");
+
+  photos.forEach(photo => {
+    photo.classList.remove("visible");
+  });
+
+  photos.forEach((photo, index) => {
+    const timer = setTimeout(() => {
+      photo.classList.add("visible");
+    }, index * CONFIG.photoDelay);
+
+    photoTimers.push(timer);
+  });
+
+  typeText(
+    document.getElementById("typingMessage"),
+    CONFIG.giftOneMessage,
+    CONFIG.typingSpeed
+  );
+}
+
+/* ==========================================
+   LOVE LETTER
+========================================== */
+
+function openLetter() {
+  showPage("letterPage");
+
+  const photo = document.getElementById("letterPhotoBox");
+  photo.classList.remove("visible");
+
+  let photoShown = false;
+
+  typeText(
+    document.getElementById("letterText"),
+    CONFIG.letter,
+    CONFIG.typingSpeed,
+    progress => {
+      if (progress >= 0.1 && !photoShown) {
+        photoShown = true;
+        photo.classList.add("visible");
+      }
+    }
+  );
+}
+
+/* ==========================================
+   PAGE TURN SOUND
+========================================== */
+
+let audioContext;
+
+function playPageSound() {
+  try {
+    audioContext ||= new (
+      window.AudioContext || window.webkitAudioContext
+    )();
+
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    oscillator.type = "triangle";
+    oscillator.frequency.setValueAtTime(
+      480, audioContext.currentTime
+    );
+
+    oscillator.frequency.exponentialRampToValueAtTime(
+      180, audioContext.currentTime + 0.12
+    );
+
+    gain.gain.setValueAtTime(
+      0.035, audioContext.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.001, audioContext.currentTime + 0.14
+    );
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + 0.15);
+  } catch (error) {
+    // Audio is optional if browser blocks it.
+  }
+}
+
+/* ==========================================
+   GIFT 2: THREE MEETINGS
+========================================== */
+
+let meetingIndex = 0;
+
+function openGiftTwo() {
+  meetingIndex = 0;
+  showPage("giftTwoPage");
+  renderMeeting();
+}
+
+function renderMeeting() {
+  const meeting = CONFIG.meetings[meetingIndex];
+
+  document.getElementById("meetingTitle")
+    .textContent = meeting.title;
+
+  document.getElementById("meetingText")
+    .textContent = meeting.text;
+
+  document.getElementById("meetingPhoto")
+    .src = CONFIG.photos.meetings[meetingIndex];
+
+  document.getElementById("meetingCounter")
+    .textContent = `${meetingIndex + 1} / 3`;
+
+  document.getElementById("meetingPrev")
+    .disabled = meetingIndex === 0;
+
+  document.getElementById("meetingNext")
+    .disabled = meetingIndex === 2;
+}
+
+function changeMeeting(direction) {
+  const next = meetingIndex + direction;
+
+  if (next < 0 || next > 2) return;
+
+  meetingIndex = next;
+  playPageSound();
+  renderMeeting();
+}
+
+/* ==========================================
+   GIFT 3: 21 REASONS
+========================================== */
+
+let reasonPhotoIndex = 0;
+
+function openReasonsBook() {
+  reasonPhotoIndex = 0;
+  showPage("reasonsBookPage");
+
+  const list = document.getElementById("reasonsList");
+  list.replaceChildren();
+
+  CONFIG.reasons.forEach(reason => {
+    const li = document.createElement("li");
+    li.textContent = reason;
+    list.appendChild(li);
+  });
+
+  renderReasonPhoto();
+  playPageSound();
+}
+
+function renderReasonPhoto() {
+  document.getElementById("reasonPhoto").src =
+    CONFIG.photos.reasons[reasonPhotoIndex];
+
+  document.getElementById("reasonPhotoCounter")
+    .textContent =
+      `${reasonPhotoIndex + 1} / ${CONFIG.photos.reasons.length}`;
+}
+
+function changeReasonPhoto(direction) {
+  const length = CONFIG.photos.reasons.length;
+
+  reasonPhotoIndex =
+    (reasonPhotoIndex + direction + length) % length;
+
+  renderReasonPhoto();
+  playPageSound();
+}
+
+/* ==========================================
+   LOAD ALL PHOTOS
+========================================== */
+
+function setPhoto(id, path) {
+  document.getElementById(id).src = path;
+}
+
+function loadPhotos() {
+  const p = CONFIG.photos;
+
+  setPhoto("mainPhoto", p.main);
+  setPhoto("surprisePhoto", p.surprise);
+
+  setPhoto("giftOneCover", p.giftOneCover);
+  setPhoto("giftTwoCover", p.giftTwoCover);
+  setPhoto("giftThreeCover", p.giftThreeCover);
+
+  setPhoto("stackPhoto1", p.giftOne[0]);
+  setPhoto("stackPhoto2", p.giftOne[1]);
+  setPhoto("stackPhoto3", p.giftOne[2]);
+
+  setPhoto("letterPhoto", p.letter);
+}
+
+/* ==========================================
+   CREATE FLOATING HEARTS
+========================================== */
+
+function createHearts() {
+  document.querySelectorAll(".floating-hearts")
+    .forEach(container => {
+      for (let i = 0; i < 16; i++) {
+        const heart = document.createElement("span");
+
+        heart.textContent = "♥";
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.fontSize =
+          `${12 + Math.random() * 25}px`;
+
+        heart.style.animationDelay =
+          `${Math.random() * -9}s`;
+
+        heart.style.animationDuration =
+          `${7 + Math.random() * 6}s`;
+
+        container.appendChild(heart);
+      }
+    });
+}
+
+/* ==========================================
+   INITIALIZE WEBSITE
+========================================== */
+
+loadPhotos();
+createHearts();
+showPage("passwordPage");
+
+</script>
+</body>
+</html>
